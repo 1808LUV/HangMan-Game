@@ -93,7 +93,7 @@ const HEAD = (
   
   export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
     return (
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", left: "2rem" }}>
         {BODY_PARTS.slice(0, numberOfGuesses)}
         <div
           style={{

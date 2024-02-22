@@ -114,21 +114,32 @@ function App() {
             {isLoser && "Nice Try - Refresh to try again"}
           </div>
           <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-          <HangmanWord
-            reveal={isLoser}
-            guessedLetters={guessedLetters}
-            wordToGuess={wordToGuess}
-          />
-          <div style={{ alignSelf: "stretch" }}>
-            <Keyboard
-              disabled={isWinner || isLoser}
-              activeLetters={guessedLetters.filter((letter) =>
-                wordToGuess.includes(letter)
-              )}
-              inactiveLetters={incorrectLetters}
-              addGuessedLetter={addGuessedLetter}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              minWidth: "100%",
+              gap: "2rem",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <HangmanWord
+              reveal={isLoser}
+              guessedLetters={guessedLetters}
+              wordToGuess={wordToGuess}
             />
-          </div>
+            <div style={{ alignSelf: "stretch" }}>
+              <Keyboard
+                disabled={isWinner || isLoser}
+                activeLetters={guessedLetters.filter((letter) =>
+                  wordToGuess.includes(letter)
+                )}
+                inactiveLetters={incorrectLetters}
+                addGuessedLetter={addGuessedLetter}
+              />
+            </div>
+          </Box>
           <Button
             variant="contained"
             onClick={() => window.location.reload()}
